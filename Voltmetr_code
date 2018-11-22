@@ -1,0 +1,17 @@
+int pin = A0;
+int R1 = 220, R2 = 1000;
+
+void setup() {
+  pinMode(pin, OUTPUT);
+  Serial.begin(9600);
+}
+
+int n;
+float r;
+void loop() {
+  n = analogRead(pin);
+
+  r = (n * 5. / 1023) * (R1 + R2) / R1;
+  r *= 10;
+  Serial.println(r);
+}
