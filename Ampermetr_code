@@ -1,0 +1,19 @@
+int pin1 = A0, pin2 = A1;
+int R = 220;
+void setup() {
+  pinMode(pin1, OUTPUT);
+  pinMode(pin2, OUTPUT);
+  Serial.begin(9600);
+}
+
+int u1, u2;
+float u;
+void loop() {
+  u2 = analogRead(pin2);
+  u1 = analogRead(pin1); 
+  u =  u2 - u1;
+  u = u * 5. / 1023;
+  float i = u / R;
+  i *= 10000;
+  Serial.println(i);
+}
